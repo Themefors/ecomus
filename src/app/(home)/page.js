@@ -6,10 +6,10 @@ export const metadata = {
   keywords: "TeachFosys, web design, web development, ecommerce, digital agency",
 };
 
+
 export default function Home() {
   return (
-      <div>
-      
+    <div>
     </div>
-  );
+  )
 }

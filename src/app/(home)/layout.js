@@ -1,55 +1,40 @@
-import { Barlow } from "next/font/google";
+import { Playfair_Display, Merriweather } from "next/font/google";
 import "../globals.css";
+import Announcement from "@/Components/Shared/Announcement/Announcement";
+import Navbar from "@/Components/Shared/Navbar/Navbar";
+import Footer from "@/Components/Shared/Footer/Footer";
 
-const barlow = Barlow({
-  weight: ["400", "600"],
+// Headings font
+const playfair = Playfair_Display({
+  weight: ["400", "500", "600", "700"], 
   subsets: ["latin"],
-  variable: "--font-barlow",
+  variable: "--font-playfair",
 });
 
-export const metadata = {
-  title: "TeachFosys - Web Design & Development",
-  description: "TeachFosys specializes in creating user-focused websites and digital solutions.",
-  keywords: ["TeachFosys", "web design", "web development", "ecommerce", "digital agency"],
-  authors: [{ name: "TeachFosys", url: "https://teachfosys.com" }],
-  creator: "TeachFosys",
-  publisher: "TeachFosys",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
-  openGraph: {
-    title: "TeachFosys - Web Design & Development",
-    description: "We create modern, user-focused websites and digital solutions.",
-    url: "https://teachfosys.com",
-    siteName: "TeachFosys",
-    images: [
-      {
-        url: "/graph.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TeachFosys - Web Design & Development",
-    description: "We create modern, user-focused websites and digital solutions.",
-    images: ["/twitter.png"],
-    creator: "@teachfosys",
-  },
-};
+// Body font
+const merriweather = Merriweather({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+});
 
 export default function RootLayout({ children }) {
-
-
   return (
     <html lang="en">
-      <body className={`${barlow.variable} antialiased`}>
-        {children}
+      <body
+        className={`${playfair.variable} ${merriweather.variable} antialiased min-h-screen flex flex-col`}
+      >
+        <Announcement />
+        <Navbar />
+        
+        {/* Main content */}
+        <main className="flex-grow">
+          {children}
+        </main>
+
+        <Footer />
       </body>
     </html>
   );
 }
+
